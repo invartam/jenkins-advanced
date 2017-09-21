@@ -10,5 +10,9 @@ RUN wget https://download.docker.com/linux/static/stable/x86_64/docker-${docker_
     && rm -rf docker
 
 RUN apt update \
-    && apt install ansible \
+    && apt install -y ansible \
     && apt clean
+
+RUN apt install -y sshpass \
+    && apt clean
+
