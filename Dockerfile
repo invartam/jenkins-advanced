@@ -1,6 +1,6 @@
 FROM jenkins/jenkins
 
-ENV docker_ver=17.09.1
+ENV docker_ver=18.03.0
 
 USER root:root
 
