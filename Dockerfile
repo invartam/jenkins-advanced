@@ -12,7 +12,7 @@ RUN wget https://download.docker.com/linux/static/stable/x86_64/docker-${docker_
 RUN apt update \
     && apt install -y software-properties-common
 
-RUN add-apt-repository "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" \
+RUN add-apt-repository "deb http://ppa.launchpad.net/ansible/ansible/ubuntu zesty main" \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367 \
     && apt update \
     && apt install -y ansible sshpass python-docker \
