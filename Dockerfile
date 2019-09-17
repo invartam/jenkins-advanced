@@ -18,5 +18,5 @@ RUN add-apt-repository "deb http://ppa.launchpad.net/ansible/ansible-${ansible_v
     && wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - \
     && echo "deb https://packages.sury.org/php/ stretch main" > /etc/apt/sources.list.d/php.list \
     && apt-get update \
-    && apt-get install -y ansible sshpass python-docker php5.6 php5.6-mysql \
+    && apt-get install -y ansible sshpass python-docker php5.6 php5.6-mysql mysql-utilities \
     && apt-get clean
