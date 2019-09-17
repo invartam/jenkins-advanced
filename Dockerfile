@@ -11,10 +11,12 @@ RUN wget https://download.docker.com/linux/static/stable/x86_64/docker-${docker_
     && rm -rf docker
 
 RUN apt update \
-    && apt install -y software-properties-common
+    && apt-get install -y software-properties-common ca-certificates apt-transport-https
 
 RUN add-apt-repository "deb http://ppa.launchpad.net/ansible/ansible-${ansible_ver}/ubuntu/ xenial main" \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367 \
-    && apt update \
-    && apt install -y ansible sshpass python-docker \
-    && apt clean
+    && wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - \
+    && echo "deb https://packages.sury.org/php/ stretch main" > /etc/apt/sources.list.d/php.list \
+    && apt-get update \
+    && apt-get install -y ansible sshpass python-docker php5.6 php5.6-mysql \
+    && apt-get clean
