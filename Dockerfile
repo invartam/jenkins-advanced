@@ -1,16 +1,16 @@
 FROM jenkins/jenkins
 
-ENV docker_ver=18.03.0
-ENV ansible_ver=2.5
+ENV docker_ver=19.03.9
+ENV ansible_ver=2.8
 
 USER root:root
 
-RUN wget https://download.docker.com/linux/static/stable/x86_64/docker-${docker_ver}-ce.tgz \
-    && tar -xvf docker-${docker_ver}-ce.tgz \
+RUN wget https://download.docker.com/linux/static/stable/x86_64/docker-${docker_ver}.tgz \
+    && tar -xvf docker-${docker_ver}.tgz \
     && mv docker/docker /usr/bin/docker \
     && rm -rf docker
 
-RUN apt update \
+RUN apt-get update \
     && apt-get install -y software-properties-common ca-certificates apt-transport-https
 
 RUN add-apt-repository "deb http://ppa.launchpad.net/ansible/ansible-${ansible_ver}/ubuntu/ xenial main" \
